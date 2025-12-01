@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanzy | Admin Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        /* Custom card style */
+        .metric-card {
+            @apply bg-white p-6 rounded-xl shadow-lg border-l-4 transition duration-200 hover:shadow-xl;
+        }
+        /* Style for the main container */
+        .dashboard-grid {
+            grid-template-columns: 1fr 4fr;
+        }
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6">
+
+    <div class="max-w-7xl mx-auto min-h-screen grid dashboard-grid gap-6">
+
+        <!-- Sidebar Navigation (1/5 width on desktop) -->
+        <aside class="bg-gray-800 text-white p-6 rounded-xl shadow-2xl lg:h-full lg:sticky top-6 space-y-8">
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-extrabold text-blue-400">Cleanzy</h1>
+                <p class="text-sm text-gray-400">Admin Control Panel</p>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg bg-blue-600 font-semibold transition duration-150">
+                    <!-- Dashboard Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition duration-150">
+                    <!-- Staff Management Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2h2m-6-10A4 4 0 1012 4a4 4 0 000 8zm-2 9h8m-8-4h8m-8-4h8" />
+                    </svg>
+                    <span>Workforce & HR</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition duration-150">
+                    <!-- Booking Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>Service Bookings</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition duration-150">
+                    <!-- Finance Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v8m0-8a4 4 0 00-4-4H4a2 2 0 00-2 2v8a2 2 0 002 2h8a4 4 0 004-4v-1.586a2 2 0 00-.586-1.414z" />
+                    </svg>
+                    <span>Finance & Payroll</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition duration-150">
+                    <!-- Feedback Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-3-3H6a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2h-3l-3 3z" />
+                    </svg>
+                    <span>Feedback & Quality</span>
+                </a>
+            </nav>
+
+            <button onclick="alert('Logging out...')" class="w-full mt-10 flex items-center justify-center space-x-2 p-3 rounded-lg bg-red-600 hover:bg-red-700 font-semibold transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                <span>Logout</span>
+            </button>
+        </aside>
+
+        <!-- Main Content Area (4/5 width on desktop) -->
+        <main class="space-y-6">
+            <h1 class="text-3xl font-bold text-gray-800">Operational Overview: Mumbai</h1>
+            <p class="text-gray-600">Real-time Data Analytics and Management Console.</p>
+
+            <!-- 1. Key Performance Indicators (KPIs) -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- KPI 1: Total Bookings (Revenue) -->
+                <div class="metric-card border-blue-500">
+                    <p class="text-sm font-medium text-gray-500">Total Revenue (Monthly)</p>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mt-1">₹ 9,45,000</h2>
+                    <p class="text-xs text-green-600 font-semibold mt-1">+12.5% vs Last Month</p>
+                </div>
+
+                <!-- KPI 2: Booking Success Rate (Scheduling Efficiency) -->
+                <div class="metric-card border-emerald-500">
+                    <p class="text-sm font-medium text-gray-500">Booking Success Rate</p>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mt-1">84%</h2>
+                    <p class="text-xs text-red-600 font-semibold mt-1">-1.2% (Staff Shortage)</p>
+                </div>
+
+                <!-- KPI 3: Active Staff (Workforce Management) -->
+                <div class="metric-card border-indigo-500">
+                    <p class="text-sm font-medium text-gray-500">Active Housekeepers</p>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mt-1">105</h2>
+                    <p class="text-xs text-green-600 font-semibold mt-1">5 New Verifications Pending</p>
+                </div>
+
+                <!-- KPI 4: Average Customer Rating (Quality Control) -->
+                <div class="metric-card border-yellow-500">
+                    <p class="text-sm font-medium text-gray-500">Avg. Quality Score (Last 7 Days)</p>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mt-1">4.6 / 5.0</h2>
+                    <p class="text-xs text-gray-600 font-semibold mt-1">Based on 850 Feedback Forms</p>
+                </div>
+            </section>
+
+            <!-- 2. Workforce Monitoring and Alerts -->
+            <section class="space-y-4 pt-4">
+                <h2 class="text-xl font-bold text-gray-800 border-b pb-2">Workforce Management & Critical Alerts</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Alert Card 1: Attendance/Absence -->
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-red-800">Urgent: Unreported Absence</h3>
+                        <p class="text-sm text-gray-700 mt-1">Housekeeper **Ramesh T.** is absent. Job #4007 (Bandra) needs reassignment.</p>
+                        <button onclick="alert('Navigating to Reassignment Tool...')" class="text-xs mt-2 text-red-600 font-medium hover:underline">Reassign Now</button>
+                    </div>
+
+                    <!-- Alert Card 2: Pending Verifications -->
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-yellow-800">Action Required: Staff Verification</h3>
+                        <p class="text-sm text-gray-700 mt-1">5 staff profiles have completed training and require final admin approval.</p>
+                        <button onclick="alert('Navigating to Staff Verification Module...')" class="text-xs mt-2 text-yellow-600 font-medium hover:underline">Review Profiles</button>
+                    </div>
+
+                    <!-- Payroll Quick Action -->
+                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-indigo-800">Payroll Cycle</h3>
+                        <p class="text-sm text-gray-700 mt-1">Next payroll processing date: **28th of the month.** Approve attendance records.</p>
+                        <button onclick="alert('Navigating to Payroll Approval...')" class="text-xs mt-2 text-indigo-600 font-medium hover:underline">Approve Payroll</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Recent Bookings/Activity Feed (Transparency) -->
+            <section class="space-y-4 pt-4">
+                <h2 class="text-xl font-bold text-gray-800 border-b pb-2">Recent Booking Activity</h2>
+                <div class="bg-white rounded-xl shadow-md p-5 space-y-3">
+                    <p class="text-sm text-gray-700 border-b pb-2">
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full mr-2">COMPLETED</span> Job #4005 (Deep Clean, **Worli**) by P. Kumar. Rating: 5/5.
+                    </p>
+                    <p class="text-sm text-gray-700 border-b pb-2">
+                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full mr-2">CONFIRMED</span> New Booking #4008 (Standard, **Navi Mumbai**). Assigned to S. Raut via AI Matching.
+                    </p>
+                    <p class="text-sm text-gray-700 border-b pb-2">
+                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full mr-2">PAYMENT</span> ₹ 1,200 received from Client R. Iyer (Job #4004).
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full mr-2">CANCELLED</span> Job #4006 by Client. Reason: Rescheduled to next week.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

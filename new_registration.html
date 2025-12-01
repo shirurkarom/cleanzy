@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanzy | Register</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Aesthetic background: Subtle radial gradient for depth */
+            background: radial-gradient(circle at top left, #e0f2fe, #f0f2f5); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .input-field {
+            @apply w-full p-3 border border-gray-200 rounded-xl shadow-inner focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200;
+        }
+        .btn-primary {
+            @apply w-full bg-emerald-600 text-white font-semibold py-3 rounded-xl shadow-lg shadow-emerald-300 transition duration-300 transform hover:bg-emerald-700 hover:scale-[1.01];
+        }
+        .btn-back {
+             @apply w-full bg-gray-200 text-gray-800 font-semibold py-3 rounded-xl hover:bg-gray-300 transition duration-200 mt-4;
+        }
+        .role-button {
+            @apply flex-1 p-5 rounded-xl border-2 cursor-pointer transition duration-200;
+        }
+        .role-button.active {
+            @apply border-blue-600 bg-blue-50 shadow-md;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="w-full max-w-lg">
+        
+        <!-- Logo/Title -->
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-extrabold text-blue-600 tracking-tight">
+                Cleanzy
+            </h1>
+            <p class="text-gray-500 mt-2 font-medium" id="page-subtitle">Select Your Role to Register</p>
+        </div>
+
+        <!-- Registration Card -->
+        <div class="bg-white shadow-2xl rounded-2xl p-8 border border-gray-100">
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-6" id="card-title">New User Registration</h2>
+            
+            <!-- Step 1: Role Selection -->
+            <div id="role-selection" class="space-y-6">
+                <p class="text-gray-700 text-center font-medium">How would you like to interact with Cleanzy?</p>
+                <div class="flex space-x-4">
+                    <button type="button" class="role-button active" id="btn-client" onclick="selectRole('client')">
+                        <span class="text-xl font-bold text-blue-600">Client</span>
+                        <p class="text-sm text-gray-600 mt-1">Book services for your home.</p>
+                    </button>
+                    <button type="button" class="role-button" id="btn-housekeeper" onclick="selectRole('housekeeper')">
+                        <span class="text-xl font-bold text-emerald-600">Housekeeper</span>
+                        <p class="text-sm text-gray-600 mt-1">Offer your professional services.</p>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Forms Container -->
+            <div id="registration-forms" class="mt-6">
+                
+                <!-- Client Form -->
+                <form id="form-client" onsubmit="handleRegistration(event, 'Client')">
+                    <div class="space-y-5">
+                        
+                        <!-- Name and Contact -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="client-full-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="client-full-name" class="input-field" placeholder="e.g., Aryan Mehta" required>
+                            </div>
+                            <div>
+                                <label for="client-mobile-number" class="block text-sm font-medium text-gray-700 mb-2">Mobile Number</label>
+                                <input type="tel" id="client-mobile-number" class="input-field" placeholder="e.g., 9876543210" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Email and Password -->
+                         <div>
+                            <label for="client-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="client-email" class="input-field" placeholder="e.g., aryan.m@gmail.com" required>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="client-password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                                <input type="password" id="client-password" class="input-field" placeholder="Create a password" required minlength="6">
+                            </div>
+                            <div>
+                                <label for="client-confirm-password" class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                                <input type="password" id="client-confirm-password" class="input-field" placeholder="Re-enter password" required>
+                            </div>
+                        </div>
+
+                        <!-- Default Service Pincode/Address -->
+                        <div>
+                            <label for="client-pincode" class="block text-sm font-medium text-gray-700 mb-2">Service Pincode (e.g., 400078)</label>
+                            <input type="text" id="client-pincode" class="input-field" placeholder="Used for service area check" required>
+                            <p class="text-xs text-gray-500 mt-1">We currently serve key areas in Mumbai and Thane.</p>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="flex items-start pt-3">
+                            <input type="checkbox" id="client-terms" class="mt-1 form-checkbox text-blue-600 rounded" required>
+                            <label for="client-terms" class="ml-3 text-sm text-gray-700">
+                                I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and Privacy Policy.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            Register as Client
+                        </button>
+                        
+                        <!-- NEW FOOTER DIALOGUE ADDED HERE -->
+                        <div class="text-center pt-4 border-t border-gray-100">
+                            <p class="text-sm text-gray-600 mb-2">
+                                Looking to join our team instead?
+                            </p>
+                            <a href="#" onclick="selectRole('housekeeper')" class="text-emerald-600 hover:underline font-medium text-sm">
+                                Apply as a Housekeeper →
+                            </a>
+                        </div>
+                        
+                        <!-- Back to Login -->
+                        <p class="text-center text-sm text-gray-600 mt-5">
+                            Already have an account? 
+                            <a href="file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/login_page.html" class="text-blue-600 hover:underline font-medium">Login here</a>
+                        </p>
+
+                    </div>
+                </form>
+
+                <!-- Housekeeper Form -->
+                <form id="form-housekeeper" onsubmit="handleRegistration(event, 'Housekeeper')" class="hidden">
+                    <div class="space-y-5">
+                        
+                        <p class="text-sm text-gray-700 bg-yellow-50 border-l-4 border-yellow-500 p-3 rounded-lg">
+                            **Note:** Housekeeper accounts require background verification and approval.
+                        </p>
+
+                        <!-- Professional Details -->
+                        <div>
+                            <label for="hk-full-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name (as per ID)</label>
+                            <input type="text" id="hk-full-name" class="input-field" placeholder="e.g., Jyoti Kulkarni" required>
+                        </div>
+                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="hk-mobile-number" class="block text-sm font-medium text-gray-700 mb-2">Mobile Number</label>
+                                <input type="tel" id="hk-mobile-number" class="input-field" placeholder="e.g., 9876543210" required>
+                            </div>
+                            <div>
+                                <label for="hk-pincode" class="block text-sm font-medium text-gray-700 mb-2">Service Pincode</label>
+                                <input type="text" id="hk-pincode" class="input-field" placeholder="400XXX" required>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <label for="hk-password" class="block text-sm font-medium text-gray-700 mb-2">Create Password</label>
+                            <input type="password" id="hk-password" class="input-field" required minlength="6">
+                        </div>
+                        
+                        <!-- Skills Selection (Simplified) -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Primary Skill Area</label>
+                            <select id="hk-skill" class="input-field" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="basic">Basic Home Cleaning</option>
+                                <option value="deep">Deep Kitchen & Bathroom</option>
+                                <option value="sanitization">Full Sanitization Services</option>
+                            </select>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="flex items-start pt-3">
+                            <input type="checkbox" id="hk-terms" class="mt-1 form-checkbox text-blue-600 rounded" required>
+                            <label for="hk-terms" class="ml-3 text-sm text-gray-700">
+                                I confirm my ID and background check submission readiness.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary bg-emerald-600 shadow-emerald-300 hover:bg-emerald-700">
+                            Submit Application
+                        </button>
+                        
+                        <!-- NEW FOOTER DIALOGUE ADDED HERE -->
+                        <div class="text-center pt-4 border-t border-gray-100">
+                            <p class="text-sm text-gray-600 mb-2">
+                                Already a client or decided not to apply?
+                            </p>
+                            <a href="#" onclick="selectRole('client')" class="text-blue-600 hover:underline font-medium text-sm">
+                                Go back to Client Registration →
+                            </a>
+                        </div>
+                        
+                        <p class="text-center text-sm text-gray-600 mt-5">
+                            Already have an account? 
+                            <a href="file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/login.html" class="text-blue-600 hover:underline font-medium">Login here</a>
+                        </p>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        
+        <!-- Footer Info -->
+        <p class="text-center text-xs text-gray-500 mt-8">
+            © 2025 Cleanzy Management.
+        </p>
+
+    </div>
+
+    <script>
+        // --- Role Selection & UI Update Logic ---
+        let currentRole = 'client';
+
+        function selectRole(role) {
+            currentRole = role;
+            
+            // Update button styles
+            document.getElementById('btn-client').classList.remove('active');
+            document.getElementById('btn-housekeeper').classList.remove('active');
+            document.getElementById(`btn-${role}`).classList.add('active');
+
+            // Toggle form visibility
+            document.getElementById('form-client').classList.add('hidden');
+            document.getElementById('form-housekeeper').classList.add('hidden');
+            document.getElementById(`form-${role}`).classList.remove('hidden');
+
+            // Update header text
+            const title = document.getElementById('card-title');
+            const subtitle = document.getElementById('page-subtitle');
+            if (role === 'client') {
+                title.textContent = 'Create Your Client Account';
+                subtitle.textContent = 'Book services easily and manage your home cleaning schedule.';
+            } else {
+                title.textContent = 'Housekeeper Application';
+                subtitle.textContent = 'Join our professional team and earn great income.';
+            }
+        }
+
+        // --- Registration Handler ---
+        function handleRegistration(event, role) {
+            event.preventDefault(); // Stop form submission
+            
+            // Basic Password Check (only for Client form as it's more complex)
+            if (role === 'Client') {
+                const password = document.getElementById('client-password').value;
+                const confirmPassword = document.getElementById('client-confirm-password').value;
+                const fullName = document.getElementById('client-full-name').value;
+
+                if (password !== confirmPassword) {
+                    alert('Password and Confirm Password do not match.');
+                    return;
+                }
+                
+                alert(`Welcome, ${fullName}! Client account registered successfully. Redirecting to login...`);
+            } else {
+                const fullName = document.getElementById('hk-full-name').value;
+                alert(`Thank you, ${fullName}! Your Housekeeper application has been submitted and is pending verification. Redirecting to login...`);
+            }
+            
+            // In a real application, data is sent to the backend for user creation/application.
+            
+            setTimeout(() => {
+                // Redirect back to the login page after processing
+                window.location.href = 'file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/login_page.html';
+            }, 1500); 
+        }
+
+        // Initialize to Client role on load
+        document.addEventListener('DOMContentLoaded', () => {
+            selectRole('client');
+        });
+    </script>
+</body>
+</html>

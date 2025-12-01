@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanzy | Service Catalog</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Light grey/off-white background */
+        }
+        /* Style for active category filter in sidebar */
+        .category-button {
+            @apply flex items-center px-4 py-3 rounded-xl text-gray-700 font-medium hover:bg-blue-100 transition duration-200 cursor-pointer;
+        }
+        .category-button.active {
+            @apply bg-blue-600 text-white shadow-lg shadow-blue-300 hover:bg-blue-700;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navigation Header (Simplified) -->
+    <header class="bg-white shadow-md p-4 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/client_homepage.html" class="text-2xl font-extrabold text-blue-600 tracking-tight">Cleanzy</a>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-600">Welcome, Mr. Sharma</span>
+                <a href="file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/client_user_profile.html" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600 ring-2 ring-blue-300">AS</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Catalog Grid -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+        <!-- Left Column: Filtering and Categories -->
+        <aside class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-xl h-fit sticky top-20">
+            <h2 class="text-xl font-bold text-gray-800 border-b pb-3 mb-4">Filter Services</h2>
+            
+            <div class="space-y-2" id="filter-container">
+                <button class="category-button active" data-category="all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM6 10a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1z"/></svg>
+                    View All Services
+                </button>
+                <button class="category-button" data-category="standard">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-12 0h14a1 1 0 001-1v-2a1 1 0 00-1-1H4a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
+                    Standard Cleaning
+                </button>
+                <button class="category-button" data-category="deep">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                    Deep & Specialty Clean
+                </button>
+                <button class="category-button" data-category="sanitization">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002 15.462v5.184c0 .866.621 1.696 1.48 1.849A10.02 10.02 0 0012 21a9.972 9.972 0 008.52-4.505c.294-.48.441-1.006.48-1.547V8.539a12.001 12.001 0 00-1.882-7.597z" /></svg>
+                    Health & Sanitization
+                </button>
+                <button class="category-button" data-category="furniture">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    Furniture & Appliance
+                </button>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-100">
+                <h3 class="text-base font-semibold text-gray-800 mb-2">Need a Custom Quote?</h3>
+                <button class="w-full bg-emerald-500 text-white py-2.5 rounded-lg font-semibold hover:bg-emerald-600 transition duration-200 shadow-md">
+                    Request Survey
+                </button>
+            </div>
+        </aside>
+
+        <!-- Right Column: Service Cards -->
+        <section class="lg:col-span-3 space-y-6">
+            <h1 class="text-3xl font-extrabold text-gray-800">All Available Cleaning Services</h1>
+            <p class="text-lg text-gray-600">Select a service category on the left or scroll through our full catalog of over 15+ options.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="service-card-container">
+                
+                <!-- Service Card 1: Standard Home Clean -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500" data-categories="all,standard">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        Standard Home Clean 
+                        <span class="ml-2 text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">Popular</span>
+                    </h3>
+                    <p class="text-gray-600 mb-4">Routine maintenance cleaning covering dusting, sweeping, mopping, and basic kitchen/bathroom wipe-down. Perfect for weekly or bi-weekly bookings.</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹499</p>
+                            <p class="text-gray-500">Approx. 2-4 hours</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2: Deep Kitchen Clean -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500" data-categories="all,deep,furniture">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Deep Kitchen Clean</h3>
+                    <p class="text-gray-600 mb-4">Intensive cleaning of cabinets (exterior), chimney surface, oil stain removal, degreasing, and appliance exteriors (fridge, microwave, stove).</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹999</p>
+                            <p class="text-gray-500">Approx. 3-5 hours</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3: Bathroom Sanitization -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-purple-500" data-categories="all,deep,sanitization">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Full Bathroom Sanitization</h3>
+                    <p class="text-gray-600 mb-4">Grout cleaning, fixture polishing, deep tile scrubbing, and comprehensive disinfection to eliminate germs and water stains.</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹699</p>
+                            <p class="text-gray-500">Approx. 2-3 hours</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4: Sofa & Carpet Shampoo -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-500" data-categories="all,furniture">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sofa & Carpet Deep Shampoo</h3>
+                    <p class="text-gray-600 mb-4">Deep extraction method for spotless furnishings, removing dust mites, stains, and odors from fabric sofas and carpets.</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹1,499</p>
+                            <p class="text-gray-500">Price per unit/sq. ft.</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 5: Post-Renovation Clean -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500" data-categories="all,deep">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Post-Renovation Clean-up</h3>
+                    <p class="text-gray-600 mb-4">Heavy-duty cleaning to remove cement dust, paint splatters, and construction debris. Required for newly renovated homes.</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹2,999</p>
+                            <p class="text-gray-500">Custom quote required</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6: AC Coil Cleaning -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500" data-categories="all,furniture">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Split AC Coil & Filter Clean</h3>
+                    <p class="text-gray-600 mb-4">Professional cleaning of AC filters, coils, and outdoor units to improve efficiency and air quality. Done by certified technicians.</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹899</p>
+                            <p class="text-gray-500">Per unit basis</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 7: Pest Control (Placeholder) -->
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-gray-500" data-categories="all,sanitization">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Pest Control & Disinfection</h3>
+                    <p class="text-gray-600 mb-4">Partner service for basic pest control (cockroaches, ants) combined with surface disinfection. Safe and odorless chemicals used.</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                        <div class="text-sm">
+                            <p class="font-bold text-lg text-emerald-600">Starting ₹1,200</p>
+                            <p class="text-gray-500">Price varies by size</p>
+                        </div>
+                        <a href="#booking-step" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">Book Now</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <p class="text-center text-gray-500 mt-8">-- End of Catalog --</p>
+
+        </section>
+    </main>
+
+    <script>
+        // --- Filtering Logic ---
+        const filterContainer = document.getElementById('filter-container');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        filterContainer.addEventListener('click', (e) => {
+            const button = e.target.closest('.category-button');
+            if (!button) return;
+
+            const selectedCategory = button.getAttribute('data-category');
+
+            // Update active button state
+            filterContainer.querySelectorAll('.category-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+
+            // Filter cards
+            serviceCards.forEach(card => {
+                const categories = card.getAttribute('data-categories');
+                
+                if (selectedCategory === 'all' || categories.includes(selectedCategory)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

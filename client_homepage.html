@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanzy | Book Services</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .service-card {
+            @apply bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1 cursor-pointer;
+        }
+        .icon-bg {
+            @apply p-3 rounded-full mb-4 inline-block;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-10">
+
+        <!-- Header / Navigation -->
+        <header class="bg-white shadow-md rounded-xl p-4 flex justify-between items-center border-t-4 border-blue-600">
+            <div class="flex items-center space-x-3">
+                <h1 class="text-3xl font-extrabold text-blue-600 tracking-tight">Cleanzy</h1>
+                <span class="text-gray-500 hidden sm:inline">| Seamless Housekeeping in Mumbai</span>
+            </div>
+            
+            <nav class="flex items-center space-x-4">
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium hidden sm:inline">My Bookings</a>
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium hidden sm:inline"><a href="file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/client_profile_visit.html">Profile</a></a>
+                <!-- User Greeting & Logout -->
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm font-medium text-gray-700 hidden md:inline">Hello, Mr. Sharma!</span>
+                    <button onclick="alert('Logging out...')" class="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition duration-200">
+                        <!-- Logout Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section / Call to Action -->
+        <section class="relative bg-blue-700 text-white p-10 rounded-2xl shadow-xl overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: url('https://placehold.co/1200x400/003b8e/ffffff?text=Cleanzy+Pattern');"></div>
+            <div class="relative max-w-3xl">
+                <h2 class="text-4xl font-extrabold mb-3">Your Space Deserves the Best Clean.</h2>
+                <p class="text-xl font-light mb-6">Book a verified professional for your home in Mumbai in three simple steps.</p>
+                
+                <div class="flex space-x-4">
+                    <input type="text" placeholder="Enter your pincode (e.g., 400078)" class="p-3 rounded-lg text-gray-800 w-2/3 max-w-sm focus:ring-2 focus:ring-emerald-400" />
+                    <button onclick="alert('Searching for services in your area...')" class="bg-emerald-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-emerald-600 transition duration-200 shadow-md">
+                        Start Booking Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Categories Section -->
+        <section class="space-y-6">
+            <h3 class="text-2xl font-bold text-gray-800 border-b pb-2">Popular Services</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                
+                <!-- Service Card 1: Standard Home Cleaning -->
+                <div class="service-card" onclick="alert('Navigating to Basic Home Cleaning details...')">
+                    <div class="icon-bg bg-blue-100 text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Standard Home Clean</h4>
+                    <p class="text-sm text-gray-600">Perfect for weekly maintenance. (Starting ₹ 499)</p>
+                </div>
+
+                <!-- Service Card 2: Deep Kitchen Cleaning -->
+                <div class="service-card" onclick="alert('Navigating to Deep Kitchen Cleaning details...')">
+                    <div class="icon-bg bg-emerald-100 text-emerald-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Deep Kitchen Clean</h4>
+                    <p class="text-sm text-gray-600">Stove, chimney, and oil stain removal. (Starting ₹ 999)</p>
+                </div>
+
+                <!-- Service Card 3: Bathroom Sanitization -->
+                <div class="service-card" onclick="alert('Navigating to Bathroom Sanitization details...')">
+                    <div class="icon-bg bg-indigo-100 text-indigo-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5a5.454 5.454 0 011.854-3.486m1.336 4.417a5.454 5.454 0 011.854-3.486m1.336 4.417a5.454 5.454 0 011.854-3.486M17 11.5V14m0-2.5c.01 0 .02.008.03.018a5.5 5.5 0 011.97-.61c.216-.046.43-.09.644-.132" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Bathroom Sanitization</h4>
+                    <p class="text-sm text-gray-600">Grout, fixtures, and deep tile cleaning. (Starting ₹ 699)</p>
+                </div>
+
+                <!-- Service Card 4: Sofa/Carpet Shampoo -->
+                <div class="service-card" onclick="alert('Navigating to Sofa & Carpet Cleaning details...')">
+                    <div class="icon-bg bg-yellow-100 text-yellow-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.392-.562a2 2 0 00-1.897 1.153l-.955 2.502a.5.5 0 01-.86.294l-2.43-1.748a.5.5 0 010-.882l2.43-1.748a.5.5 0 01.86.294l.955 2.502a2 2 0 001.897 1.153l2.392-.562a2 2 0 001.022-.547z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h.01M15 10h.01M21 3v2M3 3v2M21 17v2M3 17v2M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Sofa & Carpet Shampoo</h4>
+                    <p class="text-sm text-gray-600">Deep extraction for spotless furnishings. (Starting ₹ 1,499)</p>
+                </div>
+                
+            </div>
+            
+            <div class="text-center pt-4">
+                 <button onclick="alert('Navigating to All Services list...')" class="text-blue-600 font-medium hover:underline flex items-center justify-center mx-auto space-x-1">
+   <!-- view all services -->                 <span><a href="file:///C:/Users/Om%20Shirurkar/Desktop/cleanzy/view_service.html">View All 15+ Services</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Why Choose Cleanzy Section -->
+        <section class="space-y-6 pt-6">
+            <h3 class="text-2xl font-bold text-gray-800 border-b pb-2">Why Choose Cleanzy?</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2 flex items-center space-x-2">
+                        <span class="text-emerald-500 text-3xl mr-1">✓</span> Verified Professionals
+                    </h4>
+                    <p class="text-gray-600">Every housekeeper is background-checked and highly rated by customers like you.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2 flex items-center space-x-2">
+                        <span class="text-emerald-500 text-3xl mr-1">✓</span> Real-Time Scheduling
+                    </h4>
+                    <p class="text-gray-600">Our system uses AI to match you instantly with the best available staff near your location.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2 flex items-center space-x-2">
+                        <span class="text-emerald-500 text-3xl mr-1">✓</span> Secure Payments
+                    </h4>
+                    <p class="text-gray-600">Pay securely via UPI, card, or wallet after the service is successfully completed.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer / Contact Info -->
+        <footer class="text-center text-gray-600 text-sm py-4 border-t mt-10">
+            &copy; 2025 Cleanzy Management. Need assistance? Call us at +91 80000 00000.
+        </footer>
+    </div>
+
+</body>
+</html>
